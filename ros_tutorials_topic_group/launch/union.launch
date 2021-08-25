@@ -1,0 +1,26 @@
+<!--
+    两个订阅者同时订阅了两个推送者推送的消息
+-->
+
+<!-- <launch>
+    <node pkg="ros_tutorials_topic_group" type="topic_group_publisher" name="topic_group_publisher_1"/>
+    <node pkg="ros_tutorials_topic_group" type="topic_group_publisher" name="topic_group_publisher_2"/>
+    <node pkg="ros_tutorials_topic_group" type="topic_group_subscriber" name="topic_group_subscriber_1"/>
+    <node pkg="ros_tutorials_topic_group" type="topic_group_subscriber" name="topic_group_subscriber_2"/>
+</launch> -->
+
+<!--
+    两个订阅者分别订阅了对应分组推送者推送的消息
+-->
+
+<launch>
+    <group ns="ns_1">
+        <node pkg="ros_tutorials_topic_group" type="topic_group_publisher" name="topic_group_publisher_1"/>
+        <node pkg="ros_tutorials_topic_group" type="topic_group_subscriber" name="topic_group_subscriber_1"/>
+    </group>
+
+    <group ns="ns_2">   
+        <node pkg="ros_tutorials_topic_group" type="topic_group_publisher" name="topic_group_publisher_2"/>
+        <node pkg="ros_tutorials_topic_group" type="topic_group_subscriber" name="topic_group_subscriber_2"/>
+    </group>
+</launch>
